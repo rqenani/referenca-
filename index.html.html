@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llogaritja e Tatimit mbi Qeranë - Qenani Accounting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showContent('formula')">Formula</a>
+        <a href="#" onclick="showContent('kontabilitet')">Kontabilitet</a>
+        <a href="#" onclick="showContent('tabela')">Tabela Qyteteve</a>
+    </nav>
+
+    <div id="formula" class="content active">
+        <h1>Llogaritja e Tatimit mbi Qeranë</h1>
+        <form onsubmit="calculate(event)">
+            <label for="city">Qyteti:</label>
+            <select id="city" required></select>
+
+            <label for="propertyType">Lloji i Pronës:</label>
+            <select id="propertyType" required>
+                <option value="apartamente">Apartamente</option>
+                <option value="dyqane">Dyqane</option>
+            </select>
+
+            <label for="area">Sipërfaqja në m²:</label>
+            <input type="number" id="area" placeholder="Shkruaj sipërfaqen" required>
+
+            <label for="contractPrice">Çmimi sipas kontratës në m²:</label>
+            <input type="number" id="contractPrice" placeholder="Shkruaj çmimin sipas kontratës" required>
+
+            <button type="submit">Llogarit</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <div id="kontabilitet" class="content">
+        <h3>Ditari i Kontabilitetit</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Skenari</th>
+                    <th>467 (85%)</th>
+                    <th>449 (15%)</th>
+                    <th>613 (Totali)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sipas Kontratës</td>
+                    <td id="contract467">0</td>
+                    <td id="contract449">0</td>
+                    <td id="contract613">0</td>
+                </tr>
+                <tr>
+                    <td>Sipas Referencës</td>
+                    <td id="reference467">0</td>
+                    <td id="reference449">0</td>
+                    <td id="reference613">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tabela" class="content">
+        <h3>Tabela e Qyteteve</h3>
+        <table id="cityTable">
+            <thead>
+                <tr>
+                    <th>Qyteti</th>
+                    <th>Referencë 15% Apartamente</th>
+                    <th>Referencë 15% Dyqane</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>Programi u zhvillua nga <b>Qenani Accounting Office</b> - Dhjetor 2024</p>
+        <p><b>Paralajmërim:</b> Ky program kontrollon automatikisht vlefshmërinë e referencave. Në rast ndryshimesh ligjore, korrigjimet do të aplikohen bazuar në datën aktuale.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
